@@ -1,6 +1,7 @@
 from telegram import KeyboardButton, ReplyKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from iss_requests import get_astronauts, get_nextISSpasses
+from config import telegram_bots_key
 
 
 def start(bot, update):
@@ -47,7 +48,7 @@ def location(bot, update):
     update.message.reply_text(finalResponse)
 
 
-updater = Updater('')
+updater = Updater(telegram_bots_key)
 
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(CommandHandler('help', help))
